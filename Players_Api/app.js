@@ -11,6 +11,8 @@ app.use(bodyParser.json());
 
 app.use('/api', userRoutes);
 
-mongoose.connect('mongodb://127.0.0.1:27017/playersDB')
-        .then(() => {app.listen(8080)})
-        .catch(err => console.log(err))
+mongoose.connect('mongodb://127.0.0.1:27017/playersDB');
+
+const server = app.listen(8080);
+
+module.exports = { app, server };
